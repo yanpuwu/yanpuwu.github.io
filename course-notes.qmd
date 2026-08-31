@@ -1,0 +1,29 @@
+---
+title: "Course Notes"
+pagetitle: "Course Notes | Yanpu Wu"
+description: "Course notes by Yanpu Wu"
+page-layout: full
+---
+
+::::: {.page-shell}
+
+:::: {.page-heading}
+# Course Notes
+
+Notes and supporting material from courses will be collected here.
+::::
+
+:::: {.notice-panel}
+
+::: {.notice-mark}
+Coming soon
+:::
+
+## A place for future course notes
+
+When the first set of notes is ready, replace this panel with an entry using the
+same structure as the items on the Expositions page.
+
+::::
+
+:::::

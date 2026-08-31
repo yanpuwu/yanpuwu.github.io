@@ -1,0 +1,1191 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=EB+Garamond:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap");
+
+
+/* =========================================================
+   COLOUR AND TYPE SYSTEM
+   ========================================================= */
+
+:root {
+  --paper: #fbf8f5;
+  --paper-deep: #f5efeb;
+
+  --ink: #332f33;
+  --ink-soft: #625b62;
+
+  --plum: #756375;
+  --plum-pale: #eadde8;
+
+  --lavender-grey: #b8adb9;
+  --lavender-line: #ddd5df;
+
+  --sage-pale: #dfe8df;
+  --sage-ink: #536454;
+
+  --white-soft: rgba(255, 255, 255, 0.62);
+
+  --serif: "EB Garamond", Garamond, Georgia, serif;
+  --sans: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --handwriting: "Caveat", cursive;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.66;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+p {
+  margin-bottom: 1rem;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ink);
+
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+
+a {
+  color: var(--plum);
+
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+
+a:hover,
+a:focus {
+  color: #584759;
+}
+
+
+/*
+   Quarto's automatic page title is hidden because
+   each page uses a custom title.
+*/
+#title-block-header {
+  display: none;
+}
+
+
+#quarto-content {
+  min-height: calc(100vh - 144px);
+}
+
+
+main.content {
+  width: 100%;
+  max-width: none !important;
+
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+  min-height: 76px;
+
+  padding: 0.7rem 0;
+
+  background-color: rgba(251, 248, 245, 0.94);
+
+  border-bottom: 1px solid var(--lavender-line);
+
+  box-shadow: none;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.navbar .container-fluid {
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+}
+
+
+.navbar-brand {
+  color: var(--ink) !important;
+
+  font-family: var(--serif);
+  font-size: 1.42rem;
+  font-weight: 500;
+
+  letter-spacing: -0.01em;
+}
+
+
+.navbar-nav .nav-link {
+  position: relative;
+
+  margin-left: 0.9rem;
+
+  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
+
+  color: var(--ink-soft) !important;
+
+  font-family: var(--sans);
+  font-size: 0.94rem;
+  font-weight: 400;
+
+  letter-spacing: 0.01em;
+}
+
+
+.navbar-nav .nav-link::after {
+  position: absolute;
+
+  right: 0.25rem;
+  bottom: 0.2rem;
+  left: 0.25rem;
+
+  height: 1px;
+
+  background: var(--plum);
+
+  content: "";
+
+  opacity: 0;
+
+  transform: scaleX(0.4);
+
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  opacity: 1;
+
+  transform: scaleX(1);
+}
+
+
+.navbar-toggler {
+  border-color: var(--lavender-line);
+}
+
+
+
+/* =========================================================
+   HOME — MAIN LAYOUT
+   ========================================================= */
+
+.home-shell {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    395px
+    minmax(0, 1fr);
+
+  gap: clamp(3rem, 4vw, 4.6rem);
+
+  align-items: start;
+
+  width: min(1480px, calc(100% - 36px));
+
+  min-height: calc(100vh - 77px);
+
+  margin: 0 auto;
+
+  padding: clamp(2.5rem, 4vw, 3.8rem) 0 3.6rem;
+}
+
+
+
+/* =========================================================
+   HOME — PORTRAIT
+   ========================================================= */
+
+.home-portrait-column {
+  align-self: start;
+  justify-self: start;
+
+  width: 340px;
+
+  /*
+     Slightly moves the portrait towards the left edge.
+  */
+  margin-left: -1.6rem;
+
+  padding-top: 0;
+}
+
+
+.portrait-placeholder,
+.home-portrait {
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  border-radius: 2px 42% 2px 2px;
+
+  box-shadow: 18px 20px 0 var(--sage-pale);
+}
+
+
+.portrait-placeholder {
+  display: grid;
+
+  place-items: center;
+
+  color: var(--plum);
+
+  background:
+    radial-gradient(
+      circle at 24% 18%,
+      rgba(255, 255, 255, 0.74),
+      transparent 33%
+    ),
+    linear-gradient(
+      145deg,
+      var(--plum-pale),
+      #f2e9ed 58%,
+      var(--paper-deep)
+    );
+
+  border: 1px solid rgba(117, 99, 117, 0.16);
+
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+
+  letter-spacing: 0.03em;
+}
+
+
+.home-portrait {
+  display: block;
+
+  object-fit: cover;
+}
+
+
+
+/* =========================================================
+   HOME — CV / EMAIL BELOW PORTRAIT
+   ========================================================= */
+
+.portrait-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.12rem;
+
+  width: 100%;
+
+  margin-top: 1.55rem;
+}
+
+
+.portrait-links a {
+  width: fit-content;
+
+  color: var(--plum);
+
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;
+
+  text-align: center;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+
+.portrait-links a:hover,
+.portrait-links a:focus {
+  color: #584759;
+}
+
+
+
+/* =========================================================
+   HOME — RIGHT INTRODUCTION
+   ========================================================= */
+
+.home-intro {
+  width: 100%;
+  max-width: none;
+
+  padding-top: 0.35rem;
+}
+
+
+.eyebrow,
+.notice-mark {
+  color: var(--plum);
+
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+
+.home-intro > h1 {
+  margin: 0.55rem 0 1rem;
+
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+}
+
+
+.home-lead {
+  width: 100%;
+  max-width: 960px;
+
+  margin-bottom: 1.4rem;
+
+  color: #4f494f;
+
+  font-size: 1.04rem;
+  line-height: 1.62;
+}
+
+
+
+/* =========================================================
+   HOME — FRIENDS & LINKS
+   ========================================================= */
+
+.friends-block {
+  max-width: 900px;
+
+  margin-top: 2rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--lavender-line);
+}
+
+
+.friends-intro {
+  margin: 0;
+
+  color: var(--ink-soft);
+
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+
+.friends-intro em {
+  color: #716770;
+}
+
+
+.friends-intro a {
+  color: var(--plum);
+
+  font-weight: 500;
+}
+
+
+.friends-title {
+  margin-bottom: 0.55rem;
+
+  color: var(--ink-soft);
+
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+.friends-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.55rem 1.25rem;
+}
+
+
+.friends-list a {
+  color: var(--plum);
+
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+
+
+/* =========================================================
+   HOME — DEEP SIDE
+   ========================================================= */
+
+.deep-side-note {
+  position: absolute;
+
+  right: 0;
+  bottom: 1rem;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 0.45rem;
+
+  color: var(--sage-ink);
+
+  user-select: none;
+}
+
+
+.deep-side-arrow {
+  display: inline-block;
+
+  margin-bottom: 0.1rem;
+
+  font-family: var(--handwriting);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+
+  transform: rotate(-5deg);
+}
+
+
+.deep-side-text {
+  display: inline-block;
+
+  font-family: var(--handwriting);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+
+.deep-side-sub {
+  display: block;
+
+  margin-top: 0.12rem;
+
+  color: #718071;
+
+  font-size: 0.9rem;
+
+  opacity: 0.82;
+}
+
+
+
+/* =========================================================
+   LEGACY HOME BUTTONS
+   Kept in case they are reused elsewhere later.
+   ========================================================= */
+
+.home-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin: 1.6rem 0 2rem;
+}
+
+
+.button-link {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0.62rem 1.05rem;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+
+.button-link:hover,
+.button-link:focus {
+  transform: translateY(-1px);
+}
+
+
+.button-primary {
+  color: #fff !important;
+
+  background: var(--plum);
+}
+
+
+.button-primary:hover,
+.button-primary:focus {
+  background: #625062;
+}
+
+
+.button-secondary {
+  color: var(--ink) !important;
+
+  background: var(--plum-pale);
+
+  border-color: #ddcedb;
+}
+
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background: #e1d1df;
+}
+
+
+.button-quiet {
+  color: var(--sage-ink) !important;
+
+  background: transparent;
+
+  border-color: #bdccbe;
+}
+
+
+.button-quiet:hover,
+.button-quiet:focus {
+  background: var(--sage-pale);
+}
+
+
+
+/* =========================================================
+   INNER PAGES
+   ========================================================= */
+
+.page-shell {
+  width: min(960px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  padding: clamp(4.6rem, 8vw, 7rem) 0 6rem;
+}
+
+
+.page-heading {
+  max-width: 730px;
+
+  margin-bottom: 4.2rem;
+}
+
+
+.page-heading > h1 {
+  margin: 0 0 1rem;
+
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  font-weight: 400;
+
+  letter-spacing: -0.025em;
+}
+
+
+.page-heading p {
+  color: var(--ink-soft);
+
+  font-size: 1.24rem;
+}
+
+
+
+/* =========================================================
+   EXPOSITIONS — CATEGORY HEADINGS
+   ========================================================= */
+
+.category-heading {
+  margin: 3.5rem 0 1rem;
+
+  padding-bottom: 0.45rem;
+
+  border-bottom: 1px solid var(--lavender-line);
+
+  font-family: var(--serif);
+  font-size: 1.72rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+
+/* =========================================================
+   EXPOSITIONS — ONE ENTRY
+   ========================================================= */
+
+.work-entry {
+  padding: 1.4rem 0 1.35rem;
+
+  border-bottom: 1px solid var(--lavender-line);
+}
+
+
+.work-head {
+  display: flex;
+
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 2.5rem;
+}
+
+
+.work-title {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-family: var(--serif);
+  font-size: 1.46rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+
+.work-head-links {
+  flex-shrink: 0;
+
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+.work-head-links .text-link {
+  margin-left: 1.15rem;
+}
+
+
+.text-link {
+  color: var(--plum);
+
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+
+.is-pending {
+  color: #8a8389 !important;
+
+  cursor: default;
+
+  pointer-events: none;
+
+  text-decoration-style: dashed;
+}
+
+
+
+/* =========================================================
+   EXPOSITIONS — COLLAPSIBLE INFO
+   ========================================================= */
+
+.work-info {
+  margin-top: 0.3rem;
+}
+
+
+.work-info summary {
+  width: fit-content;
+
+  color: var(--plum);
+
+  cursor: pointer;
+
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 400;
+
+  transition: color 150ms ease;
+}
+
+
+.work-info summary:hover,
+.work-info summary:focus {
+  color: #584759;
+}
+
+
+.work-info-body {
+  max-width: 720px;
+
+  margin-top: 0.7rem;
+
+  padding: 0.85rem 1.05rem;
+
+  background:
+    rgba(234, 221, 232, 0.48);
+
+  border-left: 3px solid var(--plum-pale);
+
+  font-size: 0.92rem;
+}
+
+
+.work-info-body p {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+
+  color: var(--ink-soft);
+}
+
+
+.work-info-body p:last-child {
+  margin-bottom: 0;
+}
+
+
+.course-line {
+  margin: 0 0 0.55rem;
+
+  color: #765658;
+
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+
+
+/* =========================================================
+   OPTIONAL NOTICE PANEL
+   ========================================================= */
+
+.notice-panel {
+  max-width: 720px;
+
+  padding: 2rem 2.2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(234, 221, 232, 0.65),
+      rgba(223, 232, 223, 0.72)
+    );
+
+  border: 1px solid rgba(117, 99, 117, 0.13);
+}
+
+
+.notice-panel h2 {
+  margin: 0.5rem 0 0.65rem;
+
+  font-size: 1.75rem;
+}
+
+
+.notice-panel p {
+  margin: 0;
+
+  color: var(--ink-soft);
+}
+
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.nav-footer {
+  min-height: 68px;
+
+  padding: 1rem 0;
+
+  color: #7d747b;
+
+  background: var(--paper-deep);
+
+  border-top: 1px solid var(--lavender-line);
+
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE LAYOUT — TABLET
+   ========================================================= */
+
+@media (max-width: 820px) {
+
+  .navbar .container-fluid,
+  .home-shell,
+  .page-shell {
+    width: min(100% - 32px, 680px);
+  }
+
+
+  .navbar-nav .nav-link {
+    margin-left: 0;
+  }
+
+
+  .home-shell {
+    grid-template-columns: 1fr;
+
+    gap: 2.7rem;
+
+    min-height: 0;
+
+    padding: 2.8rem 0 4.5rem;
+  }
+
+
+  .home-portrait-column {
+    width: min(74vw, 365px);
+
+    margin-left: 0;
+  }
+
+
+  .home-intro {
+    padding-top: 0;
+  }
+
+
+  .home-intro > h1 {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+
+
+  /*
+     Absolute bottom-right note becomes part of
+     normal document flow on smaller screens.
+  */
+  .deep-side-note {
+    position: static;
+
+    justify-self: start;
+
+    margin-top: 0.8rem;
+  }
+
+
+  /* Expositions */
+
+  .work-head {
+    display: block;
+  }
+
+
+  .work-head-links {
+    margin-top: 0.4rem;
+
+    white-space: normal;
+  }
+
+
+  .work-head-links .text-link {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+}
+
+
+
+/* =========================================================
+   RESPONSIVE LAYOUT — MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  body {
+    font-size: 18px;
+  }
+
+
+  .home-shell {
+    gap: 2.2rem;
+
+    padding-top: 2.2rem;
+  }
+
+
+  .home-portrait-column {
+    width: min(82vw, 335px);
+  }
+
+
+  .home-intro > h1 {
+    font-size: clamp(2.8rem, 14vw, 4.3rem);
+  }
+
+
+  .home-lead {
+    font-size: 1.02rem;
+
+    line-height: 1.68;
+  }
+
+
+  .portrait-links {
+    gap: 0.45rem 1rem;
+  }
+
+
+  .friends-block {
+    margin-top: 1.6rem;
+  }
+
+
+  .friends-list {
+    gap: 0.45rem 1rem;
+  }
+
+
+  .deep-side-text {
+    font-size: 1.06rem;
+  }
+
+
+  .deep-side-arrow {
+    font-size: 1.55rem;
+  }
+
+
+  /* Legacy buttons */
+
+  .home-actions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+
+  .button-link {
+    width: 100%;
+  }
+
+
+  /* Expositions */
+
+  .work-info {
+    margin-top: 0.5rem;
+  }
+
+
+  .category-heading {
+    margin-top: 2.8rem;
+  }
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL HOME SPACING TWEAKS
+   ========================================================= */
+
+
+/* ---------- Smaller navbar ---------- */
+
+.navbar {
+  min-height: 64px;
+  padding: 0.42rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.30rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.90rem;
+}
+
+
+/* ---------- Move the whole homepage upward ---------- */
+
+.home-shell {
+  box-sizing: border-box;
+
+  /*
+     Reduce the empty space between navbar and the main content.
+  */
+  padding-top: 1.7rem;
+
+  /*
+     Keep enough space below so that the deeper-side note
+     can sit just outside the first screen.
+  */
+  padding-bottom: 2rem;
+
+  /*
+     Navbar is now about 64px tall.
+  */
+  min-height: calc(100vh - 64px);
+}
+
+
+/* ---------- Slightly smaller title ---------- */
+
+.home-intro > h1 {
+  margin-top: 0.35rem;
+  margin-bottom: 0.75rem;
+
+  font-size: clamp(2.8rem, 4.7vw, 4.5rem);
+}
+
+
+/* ---------- Compact introduction ---------- */
+
+.home-lead {
+  font-size: 0.98rem;
+  line-height: 1.56;
+
+  margin-bottom: 1rem;
+}
+
+
+/*
+   Reduce the vertical gap between individual paragraphs
+   inside the introduction.
+*/
+.home-lead p {
+  margin-top: 0;
+  margin-bottom: 0.72rem;
+}
+
+.home-lead p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------- Eyebrow slightly smaller ---------- */
+
+.eyebrow {
+  font-size: 0.71rem;
+}
+
+
+/* ---------- CV and email slightly more compact ---------- */
+
+.portrait-links {
+  margin-top: 1.15rem;
+  gap: 0;
+}
+
+.portrait-links a {
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+
+/* ---------- Friends ---------- */
+
+.friends-block {
+  margin-top: 1.15rem;
+  padding-top: 0.7rem;
+}
+
+.friends-title {
+  margin-bottom: 0.4rem;
+
+  font-size: 0.73rem;
+}
+
+
+/*
+   Friend names remain coloured links,
+   but no longer look like standard underlined hyperlinks.
+*/
+.friends-list a,
+.friends-intro a {
+  text-decoration: none !important;
+}
+
+.friends-list a:hover,
+.friends-list a:focus,
+.friends-intro a:hover,
+.friends-intro a:focus {
+  text-decoration: none !important;
+
+  color: #584759;
+}
+
+
+/* ---------- Put the deeper-side note just below the first screen ---------- */
+
+.deep-side-note {
+  bottom: -3.2rem;
+}

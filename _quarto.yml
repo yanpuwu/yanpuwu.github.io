@@ -1,0 +1,39 @@
+# =========================================================
+# SITE SETTINGS
+# =========================================================
+# 修改浏览器标签与导航栏左侧站名：改下面的 title。
+
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Yanpu Wu's Homepage"
+  site-url: "https://your-domain.example"
+  description: "Academic homepage of Yanpu Wu"
+
+  navbar:
+    pinned: true
+    right:
+      - href: index.qmd
+        text: Home
+      - href: expositions.qmd
+        text: Expositions
+      - href: course-notes.qmd
+        text: Course Notes
+
+  page-footer:
+    left: "© 2026 Yanpu Wu"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false
+    smooth-scroll: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+
