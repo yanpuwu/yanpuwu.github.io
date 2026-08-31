@@ -9,7 +9,7 @@ project:
 
 website:
   title: "Yanpu Wu's Homepage"
-  site-url: "https://your-domain.example"
+  site-url: https://yanpuwu.github.io/
   description: "Academic homepage of Yanpu Wu"
 
   navbar:
